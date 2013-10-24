@@ -6,15 +6,12 @@ when "ubuntu"
       action :install
     end
   end
-  gem_package "bundler" do
-    gem_binary "/usr/bin/gem"
-  end
 when "centos"
   yum_package "wget"
 end
 
 # Download and unpack CiviCRM sources
-script "bundle" do
+script "install civicrm" do
   interpreter "bash"
   cwd "/var/www/wordpress/wp-content/plugins"
   code "wget #{node[:civicrm][:download_url]}"
