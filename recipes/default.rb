@@ -14,7 +14,9 @@ end
 script "install civicrm" do
   interpreter "bash"
   cwd "/var/www/wordpress/wp-content/plugins"
-  code "wget #{node[:civicrm][:download_url]}"
-  code "tar -zxvf #{node[:civicrm][:download_file]}"
-  code "rm #{node[:civicrm][:download_file]}"
+  code <<-EOH
+  wget #{node[:civicrm][:download_url]}
+  tar -zxvf #{node[:civicrm][:download_file]}
+  rm #{node[:civicrm][:download_file]}
+  EOH
 end
