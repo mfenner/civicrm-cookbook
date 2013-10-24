@@ -1,5 +1,3 @@
-include_recipe "mysql::server_ec2"
-
 case node['platform']
 when "ubuntu"
   # Install required packages
