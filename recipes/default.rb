@@ -12,7 +12,7 @@ when "centos"
 end
 
 include_recipe "mysql::server"
-include_recipe "wordpress"
+include_recipe "wordpress::default"
 
 # Download and unpack CiviCRM sources
 script "install civicrm" do
