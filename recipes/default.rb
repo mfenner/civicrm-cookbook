@@ -24,7 +24,7 @@ bash "install civicrm" do
     cd #{node[:apache][:docroot_dir]}/wordpress/wp-content/plugins
     sudo wget #{node[:civicrm][:download_url]}
     sudo tar -zxvf #{node[:civicrm][:download_file]}
-    sudo rm -Rdf #{node[:civicrm][:download_file]}
+    sudo rm #{node[:civicrm][:download_file]}
   EOH
 
   not_if { File.exists?("#{node[:apache][:docroot_dir]}/wordpress/wp-content/plugins/civicrm") }
