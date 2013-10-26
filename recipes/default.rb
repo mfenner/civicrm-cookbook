@@ -19,12 +19,13 @@ include_recipe "mysql::server"
 include_recipe "wordpress::default"
 
 # Download and unpack CiviCRM sources
-script "install civicrm" do
-  interpreter "bash"
-  cwd "#{node[:apache][:docroot_dir]}/wordpress/wp-content/plugins"
+bash "install civicrm" do
   code <<-EOH
-  sudo wget #{node[:civicrm][:download_url]}
-  sudo tar -zxvf #{node[:civicrm][:download_file]}
-  sudo rm #{node[:civicrm][:download_file]}
+    cd #{node[:apache][:docroot_dir]}/wordpress/wp-content/plugins
+    sudo wget #{node[:civicrm][:download_url]}
+    sudo tar -zxvf #{node[:civicrm][:download_file]}
+    sudo rm -Rdf #{node[:civicrm][:download_file]}
   EOH
+
+  not_if { File.exists?("#{node[:apache][:docroot_dir]}/wordpress/wp-content/plugins/civicrm") }
 end
