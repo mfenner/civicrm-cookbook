@@ -5,16 +5,16 @@
   "maintainer_email": "mfenner@plos.org",
   "license": "Apache 2.0",
   "platforms": {
-    "ubuntu": ">= 0.0.0",
-    "centos": ">= 0.0.0"
+    "ubuntu": ">= 0.0.0"
   },
   "dependencies": {
     "build-essential": ">= 0.0.0",
+    "apt": ">= 0.0.0",
     "git": ">= 0.0.0",
     "mysql": ">= 0.0.0",
     "php": ">= 0.0.0",
     "apache2": ">= 0.0.0",
     "wordpress": ">= 0.0.0"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }

@@ -1,3 +1,7 @@
+include_recipe "apt::default"
+include_recipe "build-essential::default"
+include_recipe "git::default"
+
 case node['platform']
 when "ubuntu"
   # Install required packages
