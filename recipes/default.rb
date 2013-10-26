@@ -21,7 +21,7 @@ include_recipe "wordpress::default"
 # Download and unpack CiviCRM sources
 script "install civicrm" do
   interpreter "bash"
-  cwd "/var/www/wordpress/wp-content/plugins"
+  cwd "#{node[:apache][:docroot_dir]}/wordpress/wp-content/plugins"
   code <<-EOH
   sudo wget #{node[:civicrm][:download_url]}
   sudo tar -zxvf #{node[:civicrm][:download_file]}
