@@ -8,7 +8,10 @@ when "ubuntu"
   end
 when "centos"
   yum_package "wget"
+  yum_package "unzip"
 end
+
+include_recipe "mysql::server"
 
 # Download and unpack CiviCRM sources
 script "install civicrm" do

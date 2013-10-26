@@ -1,3 +1,13 @@
 default[:civicrm][:version] = "4.4.0"
 default[:civicrm][:download_file] = "civicrm-#{node[:civicrm][:version]}-wordpress.zip"
 default[:civicrm][:download_url] = "http://sourceforge.net/projects/civicrm/files/civicrm-stable/#{node[:civicrm][:version]}/#{node[:civicrm][:download_file]}"
+default[:apache][:default_site_enabled] = true
+default[:apache][:docroot_dir] = "/vagrant"
+default[:apache][:user] = "vagrant"
+default[:apache][:group] = "vagrant"
+default[:mysql][:server_root_password] = SecureRandom.hex(8)
+default[:mysql][:server_repl_password] = SecureRandom.hex(8)
+default[:mysql][:server_debian_password] = SecureRandom.hex(8)
+default[:wordpress][:database] = "wordpress"
+default[:wordpress][:user] = "root"
+default[:wordpress][:password] = node[:mysql][:server_root_password]
